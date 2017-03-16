@@ -28,7 +28,7 @@ class LinkedList {
       this.length++;
       //console.log(this);
     }
-    console.log(this);
+    //console.log(this);
     return this;
   }
 
@@ -107,35 +107,16 @@ class LinkedList {
   }
 
   reverse() {
-    /*this._head.next = this._tail.next;
-    this._tail.next.prev = this._head;
-
-    this._tail.prev = this._head.prev;
-    this._head.prev.next = this._tail;
-
-    //this._head.prev = null;
-    //this._tail.next = null;
-    var headData = this._head;*/
-
-    //this._head = this._tail;
-    //this._tail = headData;
-    /*this._head.next = this._head.prev;
-    this._tail.prev = this._tail.next;
-    var headData = this._head;
-    this._head = this._tail;
-    this._tail = headData;*/
     var node = this._head
     do {
       var n = node.next;
       node.next = node.prev;
       node.prev = n;
       node = node.next;
-    } while (node.prev != null)
-    console.log(this)
-      /*var headData = this._head.data;
-this._head.data = this._tail.data;
-this._tail.data = headData;
-console.log(this)*/
+    } while (node != null && node.next != null)
+    var headData = this._head;
+    this._head = this._tail;
+    this._tail = headData;
     return this;
   }
 
